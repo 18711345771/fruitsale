@@ -1,6 +1,7 @@
 package org.example.calculate.enums;
 
 public enum FavEnum {
+
     //草莓限时打 8 折
     YES1(true,"common"),
     //购物满 100 减 10 块

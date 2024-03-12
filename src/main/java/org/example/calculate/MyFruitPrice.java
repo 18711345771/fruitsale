@@ -6,6 +6,7 @@ import org.example.calculate.enums.FruitEnum;
 import java.util.Scanner;
 
 public class MyFruitPrice {
+
     private static Double compute(int appleWeight, int strawberryWeight, int mangoWeight, boolean isFav, String degree) {
         double total = 0D;
         double appleTotal = appleWeight * FruitEnum.APPLE.getPrice();

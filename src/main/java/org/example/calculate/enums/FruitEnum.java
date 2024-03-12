@@ -37,5 +37,4 @@ public enum FruitEnum {
         }
         return null;
     }
-
 }
