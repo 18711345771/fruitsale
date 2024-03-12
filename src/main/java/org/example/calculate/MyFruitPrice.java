@@ -22,6 +22,8 @@ public class MyFruitPrice {
                 if (total >= 100D) {
                     total = total - 10.0;
                 }
+            } else {
+                total = appleTotal + strawberryTotal + mangoTotal;
             }
         } else {
             total = appleTotal + strawberryTotal + mangoTotal;
