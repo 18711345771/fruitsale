@@ -53,7 +53,7 @@ public class MyFruitPrice {
             System.out.println("普通优惠还是大力优惠（1表示普通，2表示大力）：");
             int temp2 = scanner.nextInt(); // 读取整数
 
-            String degree = temp2 == 1 ? "common" : (temp == 2 ? "great" : "");
+            String degree = temp2 == 1 ? "common" : (temp2 == 2 ? "great" : "");
 
             double total = compute(appleWeight, strawberryWeight, mangoWeight, isDiscount, degree);
 
