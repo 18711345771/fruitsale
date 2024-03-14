@@ -1,35 +1,10 @@
 package org.example.calculate;
 
-import org.example.calculate.enums.FavEnum;
-import org.example.calculate.enums.FruitEnum;
+import org.example.calculate.util.ComputeUtil;
 
 import java.util.Scanner;
 
 public class MyFruitPrice {
-
-    private static Double compute(int appleWeight, int strawberryWeight, int mangoWeight, boolean isFav, String degree) {
-        double total = 0D;
-        double appleTotal = appleWeight * FruitEnum.APPLE.getPrice();
-        double strawberryTotal = strawberryWeight * FruitEnum.STRAWBERRY.getPrice();
-        double mangoTotal = mangoWeight * FruitEnum.MANGO.getPrice();
-        //如果有优惠
-        if (isFav) {
-            if (FavEnum.YES1.getDegree().equals(degree)) {
-                strawberryTotal = strawberryTotal * 0.8;
-                total = total + appleTotal + strawberryTotal + mangoTotal;
-            } else if (FavEnum.YES2.getDegree().equals(degree)) {
-                total = appleTotal + strawberryTotal + mangoTotal;
-                if (total >= 100D) {
-                    total = total - 10.0;
-                }
-            } else {
-                total = appleTotal + strawberryTotal + mangoTotal;
-            }
-        } else {
-            total = appleTotal + strawberryTotal + mangoTotal;
-        }
-        return total;
-    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // 创建Scanner对象来读取输入
@@ -55,15 +30,19 @@ public class MyFruitPrice {
 
             String degree = temp2 == 1 ? "common" : (temp2 == 2 ? "great" : "");
 
-            double total = compute(appleWeight, strawberryWeight, mangoWeight, isDiscount, degree);
+            double total = ComputeUtil.compute(appleWeight, strawberryWeight, mangoWeight, isDiscount, degree);
 
-            System.out.println(String.format("您购买苹果%d斤,草莓%d斤,芒果%d斤,共计%f元", appleWeight, strawberryWeight, mangoWeight, total));
+            System.out.println(String.format("您购买苹果%d斤,草莓%d斤,芒果%d斤,共计%f元", Math.abs(appleWeight), Math.abs(strawberryWeight), Math.abs(mangoWeight), total));
 
-            System.out.println("是否清除？（1表示是，0表示退出）");
+            System.out.println("是否重新计算？（1表示是，0表示退出）");
 
-            if (scanner.nextInt()!=1) {
+            int nextResult = scanner.nextInt();
+
+            if (nextResult == 0) {
                 scanner.close(); // 关闭scanner
                 break;
+            } else if (nextResult == 1) {
+                continue;
             }
         }
     }
