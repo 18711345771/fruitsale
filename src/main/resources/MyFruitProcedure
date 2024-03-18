@@ -19,9 +19,9 @@ CREATE TABLE t_fruit (
 
 -- 第三步
 -- 补充水果价位
-insert ignore into t_fruit(1,8,'苹果');
-insert ignore into t_fruit(2,13,'草莓');
-insert ignore into t_fruit(3,20,'芒果');
+insert ignore into t_fruit(id,price,name)values(1,8,'苹果');
+insert ignore into t_fruit(id,price,name)values(2,13,'草莓');
+insert ignore into t_fruit(id,price,name)values(3,20,'芒果');
 
 -- 第四步
 -- 新建水果价格计算的存储过程
