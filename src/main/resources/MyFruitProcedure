@@ -46,14 +46,14 @@ CREATE PROCEDURE MyFruitProcedure(in appleWeight int,in strawberryWeight int,in 
     select price into p_strawberry from t_fruit where id = 2;
     select price into p_mango from t_fruit where id = 3;
     -- 如果无优惠
-    IF isDiscount==0 THEN
+    IF isDiscount=0 THEN
         set v_total = p_apple*appleWeight+p_strawberry*strawberryWeight+p_mango*mangoWeight;
     -- 如果草莓限时打 8 折优惠
-    elseif isDiscount==1 THEN
+    elseif isDiscount=1 THEN
         set p_temp = p_strawberry*strawberryWeight*0.8;
         set v_total = p_apple*appleWeight+p_temp+p_mango*mangoWeight;
     -- 购物满 100 减 10 块优惠
-    elseif isDiscount==2 THEN
+    elseif isDiscount=2 THEN
         set v_total = p_apple*appleWeight+p_strawberry*strawberryWeight+p_mango*mangoWeight;
         if v_total >= 100 then
             set v_total = v_total - 10;
@@ -67,5 +67,5 @@ DELIMITER ;
 -- 第五步
 -- 验证结果：开启cmd窗口，连接mysql，执行下面操作：
 CALL MyFruitProcedure(10,10,10,2,@v_total);
-select v_total;
+select @v_total;
 
