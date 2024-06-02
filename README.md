@@ -6,5 +6,5 @@
 
 
 ### 第二题：水果总价格计算程序存储过程
-##### 1、存储过程sql脚本内容文件路径为 src/main/resources/MyFruitProcedure.sql
+##### 1、存储过程sql脚本内容文件路径为 src/main/resources/MyFruitProcedure
 ##### 建议按照步骤进行验证
